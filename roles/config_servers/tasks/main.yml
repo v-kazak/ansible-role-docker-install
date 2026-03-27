@@ -44,11 +44,6 @@
     state: started
     enabled: true
 
-- name: Запускаем для теста Docker
-  ansible.builtin.command:
-    cmd: docker run --rm hello-world
-  changed_when: false
-
 - name: Создаём группу deploy
   ansible.builtin.group:
     name: deploy
@@ -87,3 +82,12 @@
     backup: true
     validate: '/usr/sbin/sshd -t -f %s'
   notify: restart ssh
+  
+- name: Проверяем версию Docker
+  ansible.builtin.command: docker --version
+  register: docker_version_check
+  changed_when: false
+
+- name: Показываем установленную версию Docker
+  ansible.builtin.debug:
+    var: docker_version_check.stdout
