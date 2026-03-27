@@ -26,10 +26,9 @@ Ansible playbook и роль для установки Docker на Debian и Ubu
 ## Использование
 
 1. Задайте список хостов, логины, пароли в файле `inventory.ini`.
-2. Запустите playbook: ansible-playbook playbook.yml
+2. Запустите playbook: `ansible-playbook playbook.yml`
 
-ВНИМНИЕ! Хранить пароли в inventory.ini это дыра в безопасности! Удалите их после первого запуска!
-
+ВНИМАНИЕ! Хранить пароли в inventory.ini это дыра в безопасности! Удалите их после первого запуска!
 
 ## Примечания
 
